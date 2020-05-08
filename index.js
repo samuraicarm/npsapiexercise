@@ -16,9 +16,8 @@
   function watchForm() {
     $('form').submit(event => {
      event.preventDefault();
-     getMaxResults();
-     getStates()
-     getParkResults();
+     let selectedStates = getStates();
+     getParkResults(selectedStates);
     });
 
   }
@@ -41,23 +40,26 @@
 
  //turn states into query
   function formatQueryParams(params) {
-  const queryItems = Object.keys(params).map(key =>`${encodeURIComponent(Key)}=${encodeURIComponent(params[key])}`
+  const queryItems = Object.keys(params).map(key =>`${encodeURIComponent(key)
+  }=${encodeURIComponent(params[key])}`
     );
     return queryItems.join('&');
   }
   
 
   //update URL to include values from form
-  function getParkResults(query, maxResults=10){
+  function getParkResults(stateArray, maxResults=10){
   
     const params = {
   api_key: API_KEY,
   limit: maxResults,
-  stateCode: query,
+  stateCode: stateArray,
   };
   
    const queryString = formatQueryParams(params);
    const url = searchURL + '?' + queryString;
+
+   console.log(url)
    
    //fetch park list
     fetch(url)
