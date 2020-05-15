@@ -38,13 +38,8 @@ console.log(params);
   console.log(url);
  
  //fetch park list
-  fetch(url)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })  
+  fetch(url) 
+    .then(response => response.json())
     .then(responseJson => displayResults(responseJson))
     .catch(err => {$('#errorMessage').text(`something went wrong: ${err.message}`);
   });
