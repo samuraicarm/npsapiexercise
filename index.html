@@ -5,69 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>National Parks API Exercise</title>
-    <link rel="shortcut icon" href="">
-    <link rel="stylesheet" href="main.css">
+  
 </head>
 <body>
     <div class="container">
-<h1> National Parks - Park Finder</h1>
-<p> Choose any state(s) </p>
-<label for="Results">Max number of results</label> <input type="number" class= "quantity" name="quantity" min="1" max="10" value="1" id="myInput">
-<form id ="statesForm">
-    <label for="States">Selet States</label><br>
-<input id="ckAlabama" type ="checkbox" name="stateCode" value="AL"> <label for="States">Alabama</label>
-<input id="ckAlaska" type ="checkbox" name="stateCode" value="AK"> <label for="States">Alaska</label>
-<input id="ckArizona" type ="checkbox" name="stateCode" value="AZ"> <label for="States">Arizona</label>
-<input id="ckCalifornia"type ="checkbox" name="stateCode" value="CA"> <label for="States">California</label>
-<input id="ckColorado" type ="checkbox" name="stateCode" value="CO"> <label for="States">Colorado</label>
-<input id="ckConnecticut"type ="checkbox" name="stateCode" value="CT"> <label for="States">Connecticut</label>
-<input id="ckDelaware" type ="checkbox" name="stateCode" value="DE"> <label for="States">Delaware</label>
-<input id="ckFlorida" type ="checkbox" name="stateCode" value="FL"> <label for="States">Florida</label>
-<input id="ckGeorgia" type ="checkbox" name="stateCode" value="GA"> <label for="States">Georgia</label>
-<input id="ckHawaii" type ="checkbox" name="stateCode" value="HI"> <label for="States">Hawaii</label>
-<input id="ckIdaho" type ="checkbox" name="stateCode" value="ID" > <label for="States">Idaho</label>
-<input id="ckIllinois" type ="checkbox" name="stateCode" value="IL"> <label for="States">Illinois</label>
-<input id="ckIndiana" type ="checkbox" name="stateCode" value="IN"> <label for="States">Indiana</label>
-<input id="ckIowa" type ="checkbox" name="stateCode" value="IA"> <label for="States">Iowa</label>
-<input id="ckKansas" type ="checkbox" name="stateCode" value="KS"> <label for="States">Kansas</label>
-<input id="ckKentucky" type ="checkbox" name="stateCode" value="KY"> <label for="States">Kentucky</label>
-<input id="ckLouisiana" type ="checkbox" name="stateCode" value="LA"> <label for="States">Louisiana</label>
-<input id="ckMaine" type ="checkbox" name="stateCode" value="ME"> <label for="States">Maine</label>
-<input id="ckMaryland" type ="checkbox" name="stateCode" value="MD" i> <label for="States">Maryland</label>
-<input id="ckMassachusetts" type ="checkbox" name="stateCode" value="MA" > <label for="States">Massachusetts</label>
-<input id="ckMichigan" type ="checkbox" name="stateCode" value="MI"> <label for="States">Michigan</label>
-<input id="ckMinnesota" type ="checkbox" name="stateCode" value="MN"> <label for="States">Minnesota</label>
-<input id="ckMississippi" type ="checkbox" name="stateCode" value="MS"> <label for="States">Mississippi</label>
-<input id="ckMissouri" type ="checkbox" name="stateCode" value="MO"> <label for="States">Missouri</label>
-<input id="ckMontana" type ="checkbox" name="stateCode" value="MT"> <label for="States">Montana</label>
-<input id="ckNebraska" type ="checkbox" name="stateCode" value="NE"> <label for="States">Nebraska</label>
-<input id="ckNevada" type ="checkbox" name="stateCode" value="NV"> <label for="States">Nevada</label>
-<input id="ckNewHampshire" type ="checkbox" name="stateCode" value="NH"> <label for="States">New Hampshire</label>
-<input id="ckNewJersey" type ="checkbox" name="stateCode" value="NJ"> <label for="States">New Jersey</label>
-<input id="ckNewMexico" type ="checkbox" name="stateCode" value="NM"> <label for="States">New Mexico</label>
-<input id="ckNewYork" type ="checkbox" name="stateCode" value="NY"> <label for="States">New York</label>
-<input id="ckNorthCarolina" type ="checkbox" name="stateCode" value="NC"> <label for="States">North Carolina</label>
-<input id="ckNorthDakota" type ="checkbox" name="stateCode" value="ND"> <label for="States">North Dakota</label>
-<input id="ckOhio" type ="checkbox" name="stateCode" value="OH"> <label for="States">Ohio</label>
-<input id="ckOklahoma" type ="checkbox" name="stateCode" value="OK"> <label for="States">Oklahoma</label>
-<input id="ckOregon"type ="checkbox" name="stateCode" value="OR"> <label for="States">Oregon</label>
-<input id="ckPennsylvania" type ="checkbox" name="stateCode" value="PA"> <label for="States">Pennsylvania</label>
-<input id="ckRhodeIsland" type ="checkbox" name="stateCode" value="RI"> <label for="States">Rhode Island</label>
-<input id="ckSouthCarolina" type ="checkbox" name="stateCode" value="SC"> <label for="States">South Carolina</label>
-<input id="ckSouthDakota" type ="checkbox" name="stateCode" value="SD"> <label for="States">South Dakota</label>
-<input id="ckTennessee"type ="checkbox" name="stateCode" value="TN"> <label for="States">Tennessee</label>
-<input id="ckTexas" type ="checkbox" name="stateCode" value="TX"> <label for="States">Texas</label>
-<input id="ckUtah" type ="checkbox" name="stateCode" value="UT"> <label for="States">Utah</label>
-<input id="ckVermont"type ="checkbox" name="stateCode" value="VT"> <label for="States">Vermont</label>
-<input id="ckVirginia"type ="checkbox" name="stateCode" value="VA"> <label for="States">Virginia</label>
-<input id="ckWashington"type ="checkbox" name="stateCode" value="WA"> <label for="States">Washington D.C.</label>
-<input id="ckWashingtonDC" type ="checkbox" name="stateCode" value="DC"> <label for="States">Washington</label>
-<input id="ckWestVirginia" type ="checkbox" name="stateCode" value="WV" > <label for="States">West Virginia</label>
-<input id="ckWisconsin" type ="checkbox" name="stateCode"  value="WI"> <label for="States">Wisconsin</label>
-<input id="ckWyoming" type ="checkbox" name="stateCode"  value="WY"> <label for="States">Wyoming</label>
- 
-<input type="submit" value="Get NPS Lists">
+<h1> National Parks Finder</h1>
+<p> Search for National Parks</p>
+<form id ="statesForm"></form>
+<label for = "searchTerms"> State Abbreviation(s)</label>
+<input type="text" name="searchTerms" id="searchTerms" required>
+<label for="maxResults">Max number of results</label> <input type="number" name="maxResults" min="1" max="10" value="1" id="maxResults">
+<input type="submit" value="Get Park List">
 </form>
+
+<p id="errorMessage" class="errorMessage"></p>
+<section id="parkResults" class="hidden">
+    <h2> Park Results</h2>
+    <ul id="parkList">
+    </ul> 
+</section>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

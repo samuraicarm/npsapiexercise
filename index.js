@@ -1,8 +1,7 @@
   'use strict';
 
   const searchURL = "https://developer.nps.gov/api/v1/parks";
-  const API_KEY = "9AfnCdL3rlsLEW2jkkoIYdU7tqt8tJjmcoVzQrlP"; 
-
+  const apiKey = "9AfnCdL3rlsLEW2jkkoIYdU7tqt8tJjmcoVzQrlP"; 
 
   $(document).ready(function(){
     console.log("ready");
@@ -10,62 +9,75 @@
 
   $(function() {
     console.log('App loaded! Waiting for submit!');
-    watchForm();
   });
 
   function watchForm() {
     $('form').submit(event => {
      event.preventDefault();
-     let selectedStates = getStates();
-     getParkResults(selectedStates);
+  const searchTerms = $('#searchTerms').val();
+  const limit = $('#maxResults').val()
+  getParkResults(searchTerms,limit);
     });
-
   }
 
+  $(watchForm);
 
-  //get maxResults from form
-  function getMaxResults(){
-   const maxResults = document.getElementById('myInput').value;
-    return maxResults
-  }
+//update URL to include values from form
+function getParkResults(query, limit=10){
+  const params = {
+  api_key: apiKey,
+  q: query,
+  limit: limit-1
+};
 
-  //get states from form
-  function getStates(){ 
-  const states = [];
-   $.each($("input[name='stateCode']:checked"), function(){
-     states.push($(this).val());
-   }); 
-    console.log(states)
-  }
+    const queryString = formatQueryParams(params);
+    const url = searchURL + '?' + queryString;
+    console.log(url);
+ 
+ //fetch park list
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResults(responseJson))
+    .catch(err => {$('#errorMessage').text(`something went wrong: ${err.message}`);
+  });
+}
 
  //turn states into query
-  function formatQueryParams(params) {
+ function formatQueryParams(params) {
   const queryItems = Object.keys(params).map(key =>`${encodeURIComponent(key)
-  }=${encodeURIComponent(params[key])}`
-    );
+  }=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
   }
   
-
-  //update URL to include values from form
-  function getParkResults(stateArray, maxResults=10){
-  
-    const params = {
-  api_key: API_KEY,
-  limit: maxResults,
-  stateCode: stateArray,
-  };
-  
-   const queryString = formatQueryParams(params);
-   const url = searchURL + '?' + queryString;
-
-   console.log(url)
-   
-   //fetch park list
-    fetch(url)
-      .then(response => response.json())
-      .then(responseJson => console.log(responseJson))
-      .catch(err=>{ alert('something went wrong')});
-
+  //display results
+  function displayResults(responseJson) {
+    console.log(responseJson);
+    $('#parkList').empty();
+    for (let i=0; i<responseJson.data.length; i++) {
+      $('#parkList').append(`
+      <li><h3>${responseJson.data[i].fullName}</h3>
+      <a href='${responseJson.data[i].url}'>${response.Json.data[i].url}</a>
+      <p>${responseJson.data[i].description}</p>
+      <p>${responseJson.data[i].directionsInfo}</p>
+      </li>`)
+    };
+    $('#parkResults').removeClass('hidden');
   }
+
+
+
+
+ 
+
+
+
+
+
+
+  
 
