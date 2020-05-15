@@ -14,6 +14,7 @@
   function watchForm() {
     console.log("watch form");
     $('form').submit(event => {
+    console.log("I get called after the form is submitted.");
     event.preventDefault();
     const searchTerms = $('#searchTerms').val();
     const limit = $('#maxResults').val();
@@ -27,7 +28,7 @@ function getParkResults(query, limit=10){
   console.log("Getting park results");
   const params = {
   api_key: apiKey,
-  q: query,
+  stateCode: query,
   limit: limit-1,
 };
 console.log(params);
@@ -43,7 +44,7 @@ console.log(params);
         return response.json();
       }
       throw new Error(response.statusText);
-    })
+    })  
     .then(responseJson => displayResults(responseJson))
     .catch(err => {$('#errorMessage').text(`something went wrong: ${err.message}`);
   });

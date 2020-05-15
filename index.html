@@ -11,7 +11,7 @@
     <div class="container">
 <h1> National Parks Finder</h1>
 <p> Search for National Parks</p>
-<form id ="statesForm"></form>
+<form id ="statesForm">
 <label for = "searchTerms"> State Abbreviation(s)</label>
 <input type="text" name="searchTerms" id="searchTerms" required>
 <label for="maxResults">Max number of results</label> <input type="number" name="maxResults" min="1" max="10" value="1" id="maxResults">
@@ -21,10 +21,8 @@
 <p id="errorMessage" class="errorMessage"></p>
 <section id="parkResults" class="hidden">
     <h2> Park Results</h2>
-    <ul id="parkList">
-    </ul> 
+    <ul id="parkList"></ul> 
 </section>
-
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="index.js"></script>
