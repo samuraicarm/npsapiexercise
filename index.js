@@ -47,22 +47,22 @@ console.log(params);
 
  //turn states into query
  function formatQueryParams(params) {
-  const queryItems = Object.keys(params).map(key =>`${encodeURIComponent(key)
-  }=${encodeURIComponent(params[key])}`)
+    const queryItems = Object.keys(params).map(key =>`${encodeURIComponent(key)
+    }=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
   }
   
   //display results
   function displayResults(responseJson) {
-    console.log(responseJson);
-    $('#parkList').empty();
+      console.log(responseJson);
+      $('#parkList').empty();
     for (let i=0; i<responseJson.data.length; i++) {
       $('#parkList').append(`
       <li><h3>${responseJson.data[i].fullName}</h3>
-      <a href='${responseJson.data[i].url}'>${response.Json.data[i].url}</a>
+      <a href='${responseJson.data[i].url}'>${responseJson.data[i].url}</a>
       <p>${responseJson.data[i].description}</p>
       <p>${responseJson.data[i].directionsInfo}</p>
-      <p>${responseJson.data[i].directionsURL}</p>
+      <a href='${responseJson.data[i].directionsUrl}'>${responseJson.data[i].directionsUrl}</a>
       </li>`)
     };
     $('#parkResults').removeAttr('hidden');

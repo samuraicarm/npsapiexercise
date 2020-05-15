@@ -14,3 +14,9 @@ body {
 .hidden {
   display: none;
 }
+
+#parkList ul li {
+  list-style-type: none;
+}
+
+
