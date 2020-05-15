@@ -67,6 +67,7 @@ console.log(params);
       <a href='${responseJson.data[i].url}'>${response.Json.data[i].url}</a>
       <p>${responseJson.data[i].description}</p>
       <p>${responseJson.data[i].directionsInfo}</p>
+      <p>${responseJson.data[i].directionsURL}</p>
       </li>`)
     };
     $('#parkResults').removeClass('hidden');
