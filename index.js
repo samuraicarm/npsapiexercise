@@ -15,7 +15,7 @@
     $('form').submit(event => {
      event.preventDefault();
   const searchTerms = $('#searchTerms').val();
-  const limit = $('#maxResults').val()
+  const limit = $('#maxResults').val();
   getParkResults(searchTerms,limit);
     });
   }
@@ -27,7 +27,7 @@ function getParkResults(query, limit=10){
   const params = {
   api_key: apiKey,
   q: query,
-  limit: limit-1
+  limit: limit-1,
 };
 
     const queryString = formatQueryParams(params);
