@@ -70,7 +70,7 @@ console.log(params);
       <p>${responseJson.data[i].directionsURL}</p>
       </li>`)
     };
-    $('#parkResults').removeClass('hidden');
+    $('#parkResults').removeAttr('hidden');
   }
 
   $(watchForm);
