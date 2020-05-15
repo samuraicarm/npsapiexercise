@@ -12,27 +12,29 @@
   });
 
   function watchForm() {
+    console.log("watch form");
     $('form').submit(event => {
-     event.preventDefault();
-  const searchTerms = $('#searchTerms').val();
-  const limit = $('#maxResults').val();
-  getParkResults(searchTerms,limit);
+    event.preventDefault();
+    const searchTerms = $('#searchTerms').val();
+    const limit = $('#maxResults').val();
+    getParkResults(searchTerms,limit);
     });
   }
 
-  $(watchForm);
 
 //update URL to include values from form
 function getParkResults(query, limit=10){
+  console.log("Getting park results");
   const params = {
   api_key: apiKey,
   q: query,
   limit: limit-1,
 };
+console.log(params);
 
-    const queryString = formatQueryParams(params);
-    const url = searchURL + '?' + queryString;
-    console.log(url);
+  const queryString = formatQueryParams(params);
+  const url = searchURL + '?' + queryString;
+  console.log(url);
  
  //fetch park list
   fetch(url)
@@ -69,7 +71,7 @@ function getParkResults(query, limit=10){
     $('#parkResults').removeClass('hidden');
   }
 
-
+  $(watchForm);
 
 
  
